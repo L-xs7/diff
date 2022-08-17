@@ -1,44 +1,16 @@
-import {
-    init,
-    classModule,
-    propsModule,
-    styleModule,
-    eventListenersModule,
-    h,
-} from "snabbdom";
+import h from '../mySnabbdom/h.js'
 
-//创建patch函数
-const patch = init([classModule, propsModule, styleModule, eventListenersModule])
+var myVode1 = h('div', {}, '文字')
 
-//创建虚拟节点
-//h函数的作用就是创建虚拟节点
-//h函数可以嵌套使用,从而得到虚拟DOM树
-const myVnode1 = h('a', {
-    props: {
-        href: 'http://www.atguigu.com',
-        target: '_blank'
-    }
-}, '尚硅谷')
-
-const myVnode2 = h('div', {
-    class: { 'box': true }
-}, '我是一个盒子')
-
-const myVnode3 = h('ul', [
-    h('li', '苹果'),
-    h('li', '西瓜'),
-    h('li', [
-        h('div', [
-            h('p', '哈哈'),
-            h('p', '嘻嘻')
-        ])
+var myVode2 = h('div', {}, [
+    h('p', {}, [
+        h('span', {}, 'lxs')
     ]),
-    h('li', h('span','火龙果'))
+    h('p', {}, '嘻嘻'),
+    h('p', {}, '呵呵'),
+    // h('p',{},h('span', {}, 'lxs'))
 ])
 
-//让虚拟节点上树
-const container = document.getElementById('container')
-// patch(container, myVnode1)
-// patch(container, myVnode2)
-patch(container, myVnode3)
+var myVode3 = h('div', {}, h('span', {}, 'lxs'))
 
+console.log(myVode3)
