@@ -28,11 +28,12 @@ export default function h(sel, data, c) {
             children.push(c[i])
         }
         //循坏结束了就说明children收集完毕了,它有children属性
-        return vnode(sel,data,children,undefined,undefined)
+        return vnode(sel, data, children, undefined, undefined)
     } else if (typeof c == 'object' && c.hasOwnProperty('sel')) {
         //说明现在调用h函数是形态3
-        
-
+        //传入的c是唯一的children
+        let children = [c]
+        return vnode(sel, data, children, undefined, undefined)
     } else {
         throw new Error('传入的第三个参数类型不对')
     }
