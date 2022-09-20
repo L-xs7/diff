@@ -7,7 +7,7 @@ import {
     h,
 } from "snabbdom";
 
-//创建patch函数
+//创建patch函数--test
 const patch = init([classModule, propsModule, styleModule, eventListenersModule])
 //key 是唯一标识 有key才能实现最小化更新
 //只有同一个虚拟节点，才能进行精细化比较 如何定义是同一个虚拟节点 选择器相同且key相同
